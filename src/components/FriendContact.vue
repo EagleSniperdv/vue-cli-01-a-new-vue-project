@@ -6,7 +6,9 @@
             <li><strong>Phone:</strong>{{ phoneNumber }}</li>
             <li><strong>Email:</strong>{{ emailAddress }}</li>
             <li>{{ id }}</li>
+            
         </ul>
+        <button @click="$emit('delete', id)">DELETE</button>
     </li>
 </template>
 
@@ -18,6 +20,8 @@ export default {
         'phoneNumber',
         'emailAddress'
     ],
+
+    emits: ['delete'],
     data() {
         return {
             detailsAreVisible: false,
@@ -27,7 +31,8 @@ export default {
     methods:{
         toggleDetails() {
             this.detailsAreVisible = !this.detailsAreVisible;
-        }
+        },
+        
     }
 };
 </script>
